@@ -6,7 +6,7 @@
 /*   By: jrignell <jrignell@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/13 14:24:17 by jrignell          #+#    #+#             */
-/*   Updated: 2020/05/13 15:29:06 by jrignell         ###   ########.fr       */
+/*   Updated: 2020/05/13 16:45:18 by jrignell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ static t_list	*se_move_cursor(t_list *current, t_sh *t)
 	return (current);
 }
 
-static t_list	*se_find_current_cursor(t_sh *t)
+t_list			*se_get_current_cursor(t_sh *t)
 {
 	t_list	*current;
 
@@ -49,7 +49,7 @@ int				se_move_cursor_modifylist(t_sh *t)
 {
 	t_list	*current;
 
-	if (!(current = se_find_current_cursor(t)))
+	if (!(current = se_get_current_cursor(t)))
 		se_exit("There was an error finding cursor position. Exiting...\r\n");
 	current = se_move_cursor(current, t);
 	((t_args *)current->content)->cursor = TRUE;

@@ -6,12 +6,13 @@
 /*   By: jrignell <jrignell@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/11 13:35:09 by jrignell          #+#    #+#             */
-/*   Updated: 2020/05/13 15:03:19 by jrignell         ###   ########.fr       */
+/*   Updated: 2020/05/13 18:09:57 by jrignell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_select.h"
 #include <term.h>
+#include <stdlib.h>
 
 static int	se_process_keypress(t_sh *t)
 {
@@ -19,6 +20,10 @@ static int	se_process_keypress(t_sh *t)
 	{
 		if (t->key == ENTER)
 			break ;
+		else if (t->key == SPACE)
+			return (se_select_unselect(t));
+		else if (t->key == DEL || t->key == BSPACE)
+			return (se_remove_link(t));
 		else
 			return (se_move_cursor_modifylist(t));
 	}

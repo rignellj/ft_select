@@ -6,7 +6,7 @@
 /*   By: jrignell <jrignell@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/23 19:38:34 by jrignell          #+#    #+#             */
-/*   Updated: 2020/05/13 14:43:56 by jrignell         ###   ########.fr       */
+/*   Updated: 2020/05/13 17:00:01 by jrignell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,16 +33,12 @@
 
 /*
 ********************************************************************************
-**                                                                            **
 **                         DEV                                                **
-**                                                                            **
 ********************************************************************************
 */
 /*
 ********************************************************************************
-**                                                                            **
 **                         STRUCTS                                            **
-**                                                                            **
 ********************************************************************************
 */
 typedef struct	termios	t_termios;
@@ -70,6 +66,26 @@ typedef struct	s_args
 
 /*
 ********************************************************************************
+**                         RAWMODE                                            **
+********************************************************************************
+*/
+
+void			se_enable_rawmode(t_sh *t);
+void			se_disable_rawmode(t_sh *t);
+
+/*
+********************************************************************************
+**                         MODIFY LIST                                        **
+********************************************************************************
+*/
+
+t_list			*se_get_current_cursor(t_sh *t);
+int				se_move_cursor_modifylist(t_sh *t);
+int				se_select_unselect(t_sh *t);
+int				se_remove_link(t_sh *t);
+
+/*
+********************************************************************************
 **                                                                            **
 **                         MOST IMPORTANT FUNCTIONS                           **
 **                                                                            **
@@ -79,11 +95,10 @@ typedef struct	s_args
 int				ft_putint_fd(int c);
 void			se_clear_screen(void);
 void			se_init(t_sh *t, int ac, char **av, char **env);
-void			se_enable_rawmode(t_sh *t);
-void			se_disable_rawmode(t_sh *t);
 void			se_put_args_linkedlist(t_sh *t);
 void			se_print_arg_stderr(t_sh *t);
-int				se_move_cursor_modifylist(t_sh *t);
+
+
 int				se_readkey(void);
 void			se_process_input(t_sh *t);
 void			se_print_options_stdout(t_sh *t);
