@@ -6,20 +6,30 @@
 /*   By: jrignell <jrignell@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/13 16:39:40 by jrignell          #+#    #+#             */
-/*   Updated: 2020/05/13 18:23:15 by jrignell         ###   ########.fr       */
+/*   Updated: 2020/05/13 21:35:16 by jrignell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_select.h"
 
-static void	se_del_memory(void *content, size_t content_size)
+static void	se_del_middle_link(t_list *current)
 {
-	t_args	*tmp;
+	((t_args *)current->prev->content)->cursor = TRUE;
+	current->prev->next = current->next;
+	current->next->prev = current->prev;
+}
 
-	tmp = (t_args *)content;
-	ft_strdel(&tmp->name);
-	ft_memdel((void **)&tmp);
-	content_size = 0;
+static void	se_del_last_link(t_list *current)
+{
+	((t_args *)current->prev->content)->cursor = TRUE;
+	current->prev->next = NULL;
+}
+
+static void	se_del_first_link(t_list *current, t_sh *t)
+{
+	t->head = current->next;
+	((t_args *)current->next->content)->cursor = TRUE;
+	current->next->prev = NULL;
 }
 
 int		se_remove_link(t_sh *t)
@@ -28,23 +38,17 @@ int		se_remove_link(t_sh *t)
 
 	if (!(current = se_get_current_cursor(t)))
 		return (0);
+	if (t->key == ESC)
+	{
+		ft_lstdel(&t->head, se_del_memory);
+		return (0);
+	}
 	if (current->prev && current->next)
-	{
-		((t_args *)current->prev->content)->cursor = TRUE;
-		current->prev->next = current->next;
-		current->next->prev = current->prev;
-	}
+		se_del_middle_link(current);
 	else if (current->prev)
-	{
-		((t_args *)current->prev->content)->cursor = TRUE;
-		current->prev->next = NULL;
-	}
+		se_del_last_link(current);
 	else if (current->next)
-	{
-		t->head = current->next;
-		((t_args *)current->next->content)->cursor = TRUE;
-		current->next->prev = NULL;
-	}
+		se_del_first_link(current, t);
 	else
 		return (0);
 	ft_lstdelone(&current, se_del_memory);

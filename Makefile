@@ -6,7 +6,7 @@
 #    By: jrignell <jrignell@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/03/13 18:19:52 by jrignell          #+#    #+#              #
-#    Updated: 2020/05/13 17:00:43 by jrignell         ###   ########.fr        #
+#    Updated: 2020/05/13 21:35:45 by jrignell         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,6 +24,7 @@ SRC :=	main.c \
 		se_close.c \
 		se_config.c \
 		se_readkey.c \
+		se_del_memory.c \
 		se_remove_link.c \
 		se_clear_screen.c \
 		se_process_input.c \

@@ -6,7 +6,7 @@
 /*   By: jrignell <jrignell@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/23 19:38:34 by jrignell          #+#    #+#             */
-/*   Updated: 2020/05/13 17:00:01 by jrignell         ###   ########.fr       */
+/*   Updated: 2020/05/13 21:31:45 by jrignell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,6 +83,7 @@ t_list			*se_get_current_cursor(t_sh *t);
 int				se_move_cursor_modifylist(t_sh *t);
 int				se_select_unselect(t_sh *t);
 int				se_remove_link(t_sh *t);
+void			se_del_memory(void *content, size_t content_size);
 
 /*
 ********************************************************************************
