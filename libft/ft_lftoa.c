@@ -6,7 +6,7 @@
 /*   By: jrignell <jrignell@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/09 14:27:09 by jrignell          #+#    #+#             */
-/*   Updated: 2020/04/15 18:54:23 by jrignell         ###   ########.fr       */
+/*   Updated: 2020/05/11 21:17:55 by jrignell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,7 +101,7 @@ char		*ft_lftoa(long double value, size_t precision)
 	num = (long int)value;
 	tmp = NULL;
 	minus = (value < 0) ? 1 : 0;
-	value = (value >= 0) ? value - num : FT_ABS(value) - FT_ABS(num);
+	value = (value >= 0) ? value - num : ft_abs(value) - ft_abs(num);
 	dec = return_after_point(value, precision);
 	(dec[0] == ':') ? (add_one_or_int(dec, &num, minus, 1)) : dec[0];
 	if (precision == 0)
