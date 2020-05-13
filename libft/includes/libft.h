@@ -6,7 +6,7 @@
 /*   By: jrignell <jrignell@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/18 10:08:35 by jrignell          #+#    #+#             */
-/*   Updated: 2020/05/07 12:35:38 by jrignell         ###   ########.fr       */
+/*   Updated: 2020/05/11 21:16:04 by jrignell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@
 # define FT_CHAR_MAX 127
 # define FT_CHAR_MIN -128
 # define FT_UCHAR_MAX 255
-# define FT_ABS(x) (x > 0 ? x : -x)
+// # define FT_ABS(x) (x > 0 ? x : -x)
 
 /*
 ********************************************************************************
@@ -115,6 +115,9 @@ int					ft_atoi_base(const char *str, int str_base);
 size_t				ft_arraylen(const void **arr);
 size_t				ft_strlen(const char *str);
 size_t				ft_strlcat(char *dst, const char *src, size_t dstsize);
+size_t				ft_arraymaxlen(const char **tab);
+
+unsigned long long	ft_abs(long long num);
 
 /*
 ********************************************************************************
