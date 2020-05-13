@@ -6,7 +6,7 @@
 /*   By: jrignell <jrignell@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/11 13:35:09 by jrignell          #+#    #+#             */
-/*   Updated: 2020/05/13 21:23:53 by jrignell         ###   ########.fr       */
+/*   Updated: 2020/05/13 21:40:40 by jrignell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,16 +29,7 @@ static int	se_process_keypress(t_sh *t)
 	}
 	return (0);
 }
-/*
-	// else if (t->key == UP)
-		// 	ft_dprintf(STDERR_FILENO, "this is up arrow\r\n");
-		// else if (t->key == DOWN)
-		// 	//ft_dprintf(STDERR_FILENO, "this is down arrow\r\n");
-		// else if (t->key == LEFT)
-		// 	ft_dprintf(STDERR_FILENO, "this is left arrow\r\n");
-		// else if (t->key == RIGHT)
-		// 	ft_dprintf(STDERR_FILENO, "this is right arrow\r\n");
-*/
+
 void	se_process_input(t_sh *t)
 {
 	int		status;
