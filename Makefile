@@ -6,7 +6,7 @@
 #    By: jrignell <jrignell@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/03/13 18:19:52 by jrignell          #+#    #+#              #
-#    Updated: 2020/05/08 19:07:16 by jrignell         ###   ########.fr        #
+#    Updated: 2020/05/13 14:25:27 by jrignell         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,8 +18,21 @@ INC_DIR := ./includes
 SRC_DIR := ./ft_select_srcs
 OBJ_DIR := ./obj
 
-SRC :=	main.c
-		
+SRC :=	main.c \
+		se_exit.c \
+		se_init.c \
+		se_close.c \
+		se_config.c \
+		se_readkey.c \
+		se_clear_screen.c \
+		se_process_input.c \
+		se_enable_rawmode.c \
+		se_disable_rawmode.c \
+		se_print_arg_stderr.c \
+		se_put_args_linkedlist.c \
+		se_print_options_stdout.c \
+		se_movecursor_modifylist.c
+
 OBJ :=	$(addprefix $(OBJ_DIR)/,$(SRC:.c=.o))
 
 all: $(NAME)
@@ -31,8 +44,12 @@ $(OBJ_DIR)/%.o:$(SRC_DIR)/%.c
 	@$(CC) $(CFLAGS) -I $(INC_DIR) -o $@ -c $<
 
 $(NAME): $(OBJ_DIR) $(OBJ)
+	@echo "Building libft..."
 	@make -C libft/printf_srcs/
+	@echo "Building ft_select..."
 	@$(CC) $(CFLAGS) -o $(NAME) $(OBJ) libft/printf_srcs/libftprintf.a -ltermcap
+	@echo "DONE\n"
+	@echo "usage: <command> \`./ft_select [arg1, ...]\`"
 
 clean:
 	@/bin/rm -f $(OBJ)
@@ -45,7 +62,7 @@ fclean: clean
 	@make -C libft/printf_srcs/ fclean
 	@make -C libft/ fclean
 	
-ft: $(OBJ_DIR) $(OBJ)
+se: $(OBJ_DIR) $(OBJ)
 	@$(CC) $(CFLAGS) -o $(NAME) $(OBJ) libft/printf_srcs/libftprintf.a -ltermcap
 	@make clean
 

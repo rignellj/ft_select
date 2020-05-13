@@ -54,3 +54,4 @@ dkms.conf
 # ft_select
 .DS_Store
 ft_select
+.vscode

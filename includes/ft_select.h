@@ -6,19 +6,30 @@
 /*   By: jrignell <jrignell@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/23 19:38:34 by jrignell          #+#    #+#             */
-/*   Updated: 2020/05/08 19:02:54 by jrignell         ###   ########.fr       */
+/*   Updated: 2020/05/13 14:43:56 by jrignell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef __FT_SELECT_H__
-# define __FT_SELECT_H__
+#ifndef FT_SELECT_H
+# define FT_SELECT_H
 # include "../libft/printf_srcs/includes/ft_printf.h"
+# include <termios.h>
 
-# define LEFT_ARROW 0x4B
-# define RIGHT_ARROW 0x4D
-# define DOWN_ARROW 0x50
-# define UP_ARROW 0x48
-# define ENTER_KEY 0x0A
+/*
+********************************************************************************
+**                         KEYS                                               **
+********************************************************************************
+*/
+
+# define LEFT 0x445B1B
+# define RIGHT 0x435B1B
+# define DOWN 0x425B1B
+# define UP 0x415B1B
+# define ENTER 0xD
+# define ESC 0x1B
+# define DEL 0x7E335B1B
+# define SPACE 0x20
+# define BSPACE 0x7F
 
 /*
 ********************************************************************************
@@ -34,6 +45,29 @@
 **                                                                            **
 ********************************************************************************
 */
+typedef struct	termios	t_termios;
+
+typedef struct	s_select
+{
+	int			ac;
+	int			fd;
+	int			key;
+	int			ws_rows;
+	int			ws_cols;
+	char		**av;
+	char		**env;
+	t_list		*head;
+	t_termios	original_config;
+	t_termios	rawmode;
+}				t_sh;
+
+typedef struct	s_args
+{
+	char		*name;
+	t_bool		is_picked;
+	t_bool		cursor;
+}				t_args;
+
 /*
 ********************************************************************************
 **                                                                            **
@@ -41,5 +75,20 @@
 **                                                                            **
 ********************************************************************************
 */
+
+int				ft_putint_fd(int c);
+void			se_clear_screen(void);
+void			se_init(t_sh *t, int ac, char **av, char **env);
+void			se_enable_rawmode(t_sh *t);
+void			se_disable_rawmode(t_sh *t);
+void			se_put_args_linkedlist(t_sh *t);
+void			se_print_arg_stderr(t_sh *t);
+int				se_move_cursor_modifylist(t_sh *t);
+int				se_readkey(void);
+void			se_process_input(t_sh *t);
+void			se_print_options_stdout(t_sh *t);
+void			se_config(t_sh *t);
+void			se_close(t_sh *t);
+void			se_exit(char const *error);
 
 #endif
