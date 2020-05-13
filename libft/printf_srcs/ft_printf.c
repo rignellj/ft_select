@@ -6,14 +6,14 @@
 /*   By: jrignell <jrignell@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/05 14:57:34 by jrignell          #+#    #+#             */
-/*   Updated: 2020/04/12 14:22:29 by jrignell         ###   ########.fr       */
+/*   Updated: 2020/05/12 14:24:29 by jrignell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 #include <stdlib.h>
 
-static char		ft_check_type(char c)
+char			ft_check_type(char c)
 {
 	char		*array;
 	int			i;
@@ -35,7 +35,7 @@ static char		ft_check_type(char c)
 	return (0);
 }
 
-static int		ft_len_format(char *f, unsigned int *i)
+int				ft_len_format(char *f, unsigned int *i)
 {
 	unsigned int	j;
 
@@ -45,7 +45,7 @@ static int		ft_len_format(char *f, unsigned int *i)
 	return (j);
 }
 
-static void		ft_form_struct(t_format *f, char *format,
+void			ft_form_struct(t_format *f, char *format,
 				unsigned i, unsigned j)
 {
 	char	c;
@@ -67,7 +67,7 @@ static void		ft_form_struct(t_format *f, char *format,
 		c == 'u' || c == 'x' || c == 'X'))) ? 0 : iszero(f);
 }
 
-static int		ft_check_error(char *format)
+int				ft_check_error(char *format)
 {
 	int		i;
 	int		percent;
@@ -108,7 +108,7 @@ int				ft_printf(const char *format, ...)
 		{
 			j = ft_len_format((char*)format, &i);
 			ft_form_struct(&f, (char*)format, i + 1, j);
-			ret += diouxf(&f, ap) - 1;
+			ret += diouxf(&f, ap, 1) - 1;
 			i += j + 1;
 		}
 		else

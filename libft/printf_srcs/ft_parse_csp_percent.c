@@ -6,7 +6,7 @@
 /*   By: jrignell <jrignell@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/15 14:29:55 by jrignell          #+#    #+#             */
-/*   Updated: 2020/04/15 19:07:09 by jrignell         ###   ########.fr       */
+/*   Updated: 2020/05/12 14:17:52 by jrignell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,11 +79,11 @@ int			ft_parse_csp_percent(t_format *f, va_list ap)
 		ft_parse_width(f);
 	if (f->format == 'c' && f->null == 1)
 	{
-		f->minus ? ft_putchar('\0') : ft_putstr(f->nbr);
-		f->minus ? ft_putstr(f->nbr) : ft_putchar('\0');
+		f->minus ? ft_putchar_fd('\0', f->fd) : ft_putstr_fd(f->nbr, f->fd);
+		f->minus ? ft_putstr_fd(f->nbr, f->fd) : ft_putchar_fd('\0', f->fd);
 	}
 	else
-		ft_putstr(f->nbr);
+		ft_putstr_fd(f->nbr, f->fd);
 	len = f->format == 'c' && f->null == 1 ? ft_strlen(f->nbr) + 1
 		: ft_strlen(f->nbr);
 	ft_struct_del(f);

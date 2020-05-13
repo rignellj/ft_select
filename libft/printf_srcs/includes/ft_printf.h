@@ -6,7 +6,7 @@
 /*   By: jrignell <jrignell@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/05 15:33:56 by jrignell          #+#    #+#             */
-/*   Updated: 2020/04/29 14:16:05 by jrignell         ###   ########.fr       */
+/*   Updated: 2020/05/13 14:14:58 by jrignell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,9 @@
 # define CWHITEB "\x1B[1;37m"
 
 # define CRESET "\x1B[0m"
+# define CREVERSEVIDEO "\x1B[7m"
+# define CUNDERLINED "\x1B[4m"
+# define CULINEDREVV "\x1B[4;7m"
 
 typedef struct	s_format
 {
@@ -72,6 +75,7 @@ typedef struct	s_format
 	char		*nbr;
 	int			null;
 	char		*star;
+	int			fd;
 }				t_format;
 
 /*
@@ -83,7 +87,8 @@ typedef struct	s_format
 */
 
 int				ft_printf(const char *format, ...);
-int				diouxf(t_format *f, va_list ap);
+int				ft_dprintf(int fd, const char *format, ...);
+int				diouxf(t_format *f, va_list ap, int fd);
 int				ft_parse_csp_percent(t_format *f, va_list ap);
 int				ft_parse_f(t_format *f, va_list ap);
 int				check_bef_format(t_format *f, long long print);
@@ -112,6 +117,11 @@ void			ft_put_zero(t_format *f);
 void			ft_str_free(t_format *f, char *tmp, int i, int j);
 void			ft_struct_del(t_format *f);
 void			ft_set_struct_null(t_format **f);
+int				ft_check_error(char *format);
+char			ft_check_type(char c);
+int				ft_len_format(char *f, unsigned int *i);
+void			ft_form_struct(t_format *f, char *format,
+				unsigned i, unsigned j);
 
 /*
 ********************************************************************************

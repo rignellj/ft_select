@@ -6,7 +6,7 @@
 #    By: jrignell <jrignell@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/12/05 15:53:22 by jrignell          #+#    #+#              #
-#    Updated: 2020/04/23 20:00:44 by jrignell         ###   ########.fr        #
+#    Updated: 2020/05/12 14:27:18 by jrignell         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,6 +16,7 @@ CC = gcc
 INC_DIR = includes/
 
 SRCS = 	ft_printf.c \
+		ft_dprintf.c \
 		ft_parse_diouxf.c \
 		ft_parse_hh_h_ll_l.c \
 		check_bef_format.c \

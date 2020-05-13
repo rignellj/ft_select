@@ -6,7 +6,7 @@
 /*   By: jrignell <jrignell@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/21 17:45:25 by jrignell          #+#    #+#             */
-/*   Updated: 2020/04/12 14:24:06 by jrignell         ###   ########.fr       */
+/*   Updated: 2020/05/12 14:15:55 by jrignell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ static int	ft_check_prev_f(t_format *f, long double print, int precision)
 		ft_parse_width(f);
 	if (!f->nbr)
 		exit(6);
-	ft_putstr(f->nbr);
+	ft_putstr_fd(f->nbr, f->fd);
 	len = ft_strlen(f->nbr);
 	ft_struct_del(f);
 	return (len);

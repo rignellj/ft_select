@@ -6,7 +6,7 @@
 /*   By: jrignell <jrignell@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/27 12:20:05 by jrignell          #+#    #+#             */
-/*   Updated: 2020/04/12 14:23:29 by jrignell         ###   ########.fr       */
+/*   Updated: 2020/05/12 14:08:25 by jrignell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,21 +42,22 @@ void	ft_str_free(t_format *f, char *tmp, int i, int j)
 
 void	ft_put_zero(t_format *f)
 {
-	f->format = 0;
-	f->hash = 0;
-	f->dot = 0;
-	f->len = 0;
-	f->null = 0;
-	f->minus = 0;
-	f->plus = 0;
-	f->prec = 0;
-	f->s_str = NULL;
-	f->width = 0;
-	f->space = 0;
-	f->zero = 0;
-	f->sign = 0;
-	f->nbr = NULL;
-	f->star = NULL;
+	ft_bzero(f, sizeof(t_format));
+	// f->format = 0;
+	// f->hash = 0;
+	// f->dot = 0;
+	// f->len = 0;
+	// f->null = 0;
+	// f->minus = 0;
+	// f->plus = 0;
+	// f->prec = 0;
+	// f->s_str = NULL;
+	// f->width = 0;
+	// f->space = 0;
+	// f->zero = 0;
+	// f->sign = 0;
+	// f->nbr = NULL;
+	// f->star = NULL;
 }
 
 void	swap_chars(t_format *f)

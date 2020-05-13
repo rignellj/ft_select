@@ -6,15 +6,16 @@
 /*   By: jrignell <jrignell@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/19 16:32:49 by jrignell          #+#    #+#             */
-/*   Updated: 2020/04/03 17:04:53 by jrignell         ###   ########.fr       */
+/*   Updated: 2020/05/12 14:13:19 by jrignell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int		diouxf(t_format *f, va_list ap)
+int		diouxf(t_format *f, va_list ap, int fd)
 {
 	f->star = ft_strchr(f->s_str, '*');
+	f->fd = fd;
 	if (f->star)
 		define_asterisk(f, ap);
 	if (f->format == 'd' || f->format == 'i')

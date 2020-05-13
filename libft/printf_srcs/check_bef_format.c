@@ -6,7 +6,7 @@
 /*   By: jrignell <jrignell@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/08 11:26:13 by jrignell          #+#    #+#             */
-/*   Updated: 2020/04/12 14:22:50 by jrignell         ###   ########.fr       */
+/*   Updated: 2020/05/12 14:14:19 by jrignell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ static int	print_free_return(t_format *f)
 {
 	int		len;
 
-	ft_putstr(f->nbr);
+	ft_putstr_fd(f->nbr, f->fd);
 	len = ft_strlen(f->nbr);
 	ft_struct_del(f);
 	return (len);
