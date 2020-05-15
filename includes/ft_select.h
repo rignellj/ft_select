@@ -6,7 +6,7 @@
 /*   By: jrignell <jrignell@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/23 19:38:34 by jrignell          #+#    #+#             */
-/*   Updated: 2020/05/13 21:31:45 by jrignell         ###   ########.fr       */
+/*   Updated: 2020/05/15 19:22:15 by jrignell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,8 +60,10 @@ typedef struct	s_select
 typedef struct	s_args
 {
 	char		*name;
+	char		*p_color;
 	t_bool		is_picked;
 	t_bool		cursor;
+	t_bool		printed;
 }				t_args;
 
 /*
@@ -98,7 +100,7 @@ void			se_clear_screen(void);
 void			se_init(t_sh *t, int ac, char **av, char **env);
 void			se_put_args_linkedlist(t_sh *t);
 void			se_print_arg_stderr(t_sh *t);
-
+void			se_def_how_to_print_and_print(t_sh *t, t_list *head);
 
 int				se_readkey(void);
 void			se_process_input(t_sh *t);

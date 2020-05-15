@@ -6,7 +6,7 @@
 /*   By: jrignell <jrignell@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/13 16:21:04 by jrignell          #+#    #+#             */
-/*   Updated: 2020/05/13 16:45:27 by jrignell         ###   ########.fr       */
+/*   Updated: 2020/05/13 21:45:30 by jrignell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,5 +24,6 @@ int		se_select_unselect(t_sh *t)
 		*is_selected = TRUE;
 	else
 		*is_selected = FALSE;
+	t->key = 0;
 	return (1);
 }

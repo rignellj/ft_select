@@ -6,7 +6,7 @@
 /*   By: jrignell <jrignell@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/13 16:39:40 by jrignell          #+#    #+#             */
-/*   Updated: 2020/05/13 21:35:16 by jrignell         ###   ########.fr       */
+/*   Updated: 2020/05/13 21:46:13 by jrignell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,5 +52,6 @@ int		se_remove_link(t_sh *t)
 	else
 		return (0);
 	ft_lstdelone(&current, se_del_memory);
+	t->key = 0;
 	return (1);
 }

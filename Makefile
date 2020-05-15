@@ -6,7 +6,7 @@
 #    By: jrignell <jrignell@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/03/13 18:19:52 by jrignell          #+#    #+#              #
-#    Updated: 2020/05/13 21:35:45 by jrignell         ###   ########.fr        #
+#    Updated: 2020/05/15 18:45:05 by jrignell         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,7 +34,8 @@ SRC :=	main.c \
 		se_print_arg_stderr.c \
 		se_put_args_linkedlist.c \
 		se_print_options_stdout.c \
-		se_movecursor_modifylist.c
+		se_movecursor_modifylist.c \
+		se_def_how_to_print_and_print.c
 
 OBJ :=	$(addprefix $(OBJ_DIR)/,$(SRC:.c=.o))
 

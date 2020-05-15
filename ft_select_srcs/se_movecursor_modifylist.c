@@ -6,7 +6,7 @@
 /*   By: jrignell <jrignell@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/13 14:24:17 by jrignell          #+#    #+#             */
-/*   Updated: 2020/05/13 16:45:18 by jrignell         ###   ########.fr       */
+/*   Updated: 2020/05/13 21:45:37 by jrignell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,9 +56,3 @@ int				se_move_cursor_modifylist(t_sh *t)
 	t->key = 0;
 	return (1);
 }
-
-/*
-	name = ((t_args *)current->content)->name;
-	cursor = ((t_args *)current->content)->cursor;
-	is_selected = ((t_args *)current->content)->is_picked;
-*/

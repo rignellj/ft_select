@@ -6,13 +6,13 @@
 /*   By: jrignell <jrignell@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/11 13:35:09 by jrignell          #+#    #+#             */
-/*   Updated: 2020/05/13 21:40:40 by jrignell         ###   ########.fr       */
+/*   Updated: 2020/05/15 19:58:34 by jrignell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_select.h"
-#include <term.h>
-#include <stdlib.h>
+// #include <term.h>
+// #include <stdlib.h>
 
 static int	se_process_keypress(t_sh *t)
 {
@@ -40,5 +40,6 @@ void	se_process_input(t_sh *t)
 		se_clear_screen();
 		se_print_arg_stderr(t);
 		status = se_process_keypress(t);
+		se_clear_screen();
 	}
 }

@@ -6,7 +6,7 @@
 /*   By: jrignell <jrignell@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/13 12:03:05 by jrignell          #+#    #+#             */
-/*   Updated: 2020/05/13 15:54:21 by jrignell         ###   ########.fr       */
+/*   Updated: 2020/05/15 19:25:24 by jrignell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ static void se_create_list(t_list **node, char *name)
 
 	content.is_picked = FALSE;
 	content.cursor = FALSE;
+	content.printed = FALSE;
 	if (!(content.name = ft_strdup(name)))
 		se_exit("Malloc *** error\n");
 	new = ft_lstnew(&content, sizeof(t_args));

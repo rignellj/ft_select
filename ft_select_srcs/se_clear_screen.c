@@ -6,12 +6,12 @@
 /*   By: jrignell <jrignell@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/11 14:01:14 by jrignell          #+#    #+#             */
-/*   Updated: 2020/05/12 18:29:50 by jrignell         ###   ########.fr       */
+/*   Updated: 2020/05/15 13:27:23 by jrignell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_select.h"
-#include <term.h>
+// #include <term.h>
 
 void	se_clear_screen(void)
 {
