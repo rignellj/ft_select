@@ -6,11 +6,33 @@
 /*   By: jrignell <jrignell@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/13 14:24:17 by jrignell          #+#    #+#             */
-/*   Updated: 2020/05/13 21:45:37 by jrignell         ###   ########.fr       */
+/*   Updated: 2020/05/16 13:13:01 by jrignell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_select.h"
+
+static t_list	*se_move_to_next_column(t_list *current, t_sh *t)
+{
+	t_list	*tmp;
+
+	tmp = current;
+	if (t->key == RIGHT)
+	{
+		while (current && t->rows--)
+			current = current->next;
+		if (!current)
+			return (ft_lstget_first(tmp));
+	}
+	else if (t->key == LEFT)
+	{
+		while (current && t->rows--)
+			current = current->prev;
+		if (!current)
+			return (ft_lstget_last(tmp));
+	}
+	return (current);
+}
 
 static t_list	*se_move_cursor(t_list *current, t_sh *t)
 {
@@ -18,12 +40,14 @@ static t_list	*se_move_cursor(t_list *current, t_sh *t)
 
 	tmp = current;
 	((t_args *)current->content)->cursor = FALSE;
-	if (t->key == DOWN || t->key == RIGHT)
+	if (t->key == RIGHT || t->key == LEFT)
+		return (se_move_to_next_column(current, t));
+	if (t->key == DOWN)
 	{
 		if (!(current = current->next))
 			return (ft_lstget_first(tmp));
 	}
-	else if (t->key == UP || t->key == LEFT)
+	else if (t->key == UP)
 	{
 		if (!(current = current->prev))
 			return (ft_lstget_last(tmp));

@@ -6,7 +6,7 @@
 /*   By: jrignell <jrignell@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/11 20:50:47 by jrignell          #+#    #+#             */
-/*   Updated: 2020/05/15 19:59:18 by jrignell         ###   ########.fr       */
+/*   Updated: 2020/05/16 12:39:05 by jrignell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,14 +35,12 @@ void		se_print_arg_stderr(t_sh *t)
 	t_list	*current;
 
 	current = t->head;
-	// ft_printf("cols: %d rows: %d\r\n", t->ws_cols, t->ws_rows);
 	while (current)
 	{
 		if (se_get_windowsize(t) == -1)
 			se_exit("ioctl: failed to get current window state. Exiting..\r\n");
 		if (((t_args *)current->content)->printed == FALSE)
 			se_def_how_to_print_and_print(t, current);
-		// tputs(tgetstr("cl", NULL), 1, ft_putint_fd);
 		current = current->next;
 	}
 	ft_lstiter(t->head, se_not_printed);

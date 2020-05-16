@@ -6,7 +6,7 @@
 /*   By: jrignell <jrignell@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/11 13:35:09 by jrignell          #+#    #+#             */
-/*   Updated: 2020/05/15 19:58:34 by jrignell         ###   ########.fr       */
+/*   Updated: 2020/05/16 12:32:52 by jrignell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ static int	se_process_keypress(t_sh *t)
 	{
 		if (t->key == ENTER)
 			break ;
-		else if (t->key == SPACE)
+		else if (t->key == SPACE || t->key == ASTERISK || t->key == MINUS)
 			return (se_select_unselect(t));
 		else if (t->key == DEL || t->key == BSPACE || t->key == ESC)
 			return (se_remove_link(t));

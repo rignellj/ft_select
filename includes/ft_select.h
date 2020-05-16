@@ -6,7 +6,7 @@
 /*   By: jrignell <jrignell@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/23 19:38:34 by jrignell          #+#    #+#             */
-/*   Updated: 2020/05/15 19:22:15 by jrignell         ###   ########.fr       */
+/*   Updated: 2020/05/16 12:55:26 by jrignell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,8 @@
 # define DEL 0x7E335B1B
 # define SPACE 0x20
 # define BSPACE 0x7F
+# define ASTERISK 0x2A
+# define MINUS 0x2D
 
 /*
 ********************************************************************************
@@ -41,6 +43,7 @@
 **                         STRUCTS                                            **
 ********************************************************************************
 */
+
 typedef struct	termios	t_termios;
 
 typedef struct	s_select
@@ -48,6 +51,7 @@ typedef struct	s_select
 	int			ac;
 	int			fd;
 	int			key;
+	int			rows;
 	int			ws_rows;
 	int			ws_cols;
 	char		**av;
