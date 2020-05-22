@@ -6,7 +6,7 @@
 /*   By: jrignell <jrignell@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/09 17:25:22 by jrignell          #+#    #+#             */
-/*   Updated: 2020/05/22 17:04:08 by jrignell         ###   ########.fr       */
+/*   Updated: 2020/05/22 17:53:39 by jrignell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,6 @@ void		se_init(t_sh *t, int ac, char **av)
 		return (se_exit("Failed to open port\n"));
 	if (!(term_name = getenv("TERM")))
 		return
-		(se_exit("Set a terminal type using `setenv TERM <type>`. Exiting.\n"));
+		(se_exit("Set a terminal type using `export TERM=<type>`. Exiting.\n"));
 	se_valid_terminal(term_name);
 }

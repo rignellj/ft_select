@@ -6,7 +6,7 @@
 /*   By: jrignell <jrignell@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/23 19:38:34 by jrignell          #+#    #+#             */
-/*   Updated: 2020/05/22 17:00:17 by jrignell         ###   ########.fr       */
+/*   Updated: 2020/05/22 17:24:34 by jrignell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@
 ********************************************************************************
 */
 
-typedef struct	termios	t_termios;
+typedef struct termios	t_termios;
 
 typedef struct	s_select
 {
