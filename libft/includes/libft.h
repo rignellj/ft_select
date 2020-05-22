@@ -6,7 +6,7 @@
 /*   By: jrignell <jrignell@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/18 10:08:35 by jrignell          #+#    #+#             */
-/*   Updated: 2020/05/11 21:16:04 by jrignell         ###   ########.fr       */
+/*   Updated: 2020/05/22 13:04:56 by jrignell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,11 +32,6 @@
 ********************************************************************************
 */
 
-# define FT_EXIT_FAILURE 1
-# define FT_EXIT_SUCCESS 0
-# define FT_STDIN_FILENO 0
-# define FT_STDOUT_FILENO 1
-# define FT_STDERR_FILENO 2
 # define BUFF_SIZE 32
 # define FD_SIZE 4096
 # define FT_ULONG_MAX 18446744073709551615

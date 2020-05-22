@@ -1,24 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   se_readkey.c                                       :+:      :+:    :+:   */
+/*   se_get_current_cursor.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jrignell <jrignell@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/05/11 13:38:36 by jrignell          #+#    #+#             */
-/*   Updated: 2020/05/16 12:27:42 by jrignell         ###   ########.fr       */
+/*   Created: 2020/05/22 16:26:33 by jrignell          #+#    #+#             */
+/*   Updated: 2020/05/22 17:02:12 by jrignell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_select.h"
 
-int		se_readkey(void)
+t_list			*se_get_current_cursor(t_sh *t)
 {
-	int		key;
+	t_list	*current;
 
-	key = 0;
-	if (read(STDERR_FILENO, &key, 4) == -1)
-		se_exit("read: failed to read STDERR. Exiting..\n");
-	ft_dprintf(STDERR_FILENO, "%d ('%c')\r\n", key, key);
-	return (key);
+	current = t->head;
+	while (current)
+	{
+		if (((t_args *)current->content)->cursor == TRUE)
+			break ;
+		current = current->next;
+	}
+	return (current);
 }

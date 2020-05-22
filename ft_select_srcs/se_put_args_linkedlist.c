@@ -6,13 +6,13 @@
 /*   By: jrignell <jrignell@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/13 12:03:05 by jrignell          #+#    #+#             */
-/*   Updated: 2020/05/15 19:25:24 by jrignell         ###   ########.fr       */
+/*   Updated: 2020/05/22 17:02:59 by jrignell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_select.h"
 
-static void se_create_list(t_list **node, char *name)
+static void	se_create_list(t_list **node, char *name)
 {
 	t_list	*new;
 	t_args	content;
@@ -26,7 +26,7 @@ static void se_create_list(t_list **node, char *name)
 	ft_lstappend(node, new);
 }
 
-void	se_put_args_linkedlist(t_sh *t)
+void		se_put_args_linkedlist(t_sh *t)
 {
 	size_t	i;
 	t_list	*node;

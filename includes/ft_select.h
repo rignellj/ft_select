@@ -6,7 +6,7 @@
 /*   By: jrignell <jrignell@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/23 19:38:34 by jrignell          #+#    #+#             */
-/*   Updated: 2020/05/16 12:55:26 by jrignell         ###   ########.fr       */
+/*   Updated: 2020/05/22 17:00:17 by jrignell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@
 # define RIGHT 0x435B1B
 # define DOWN 0x425B1B
 # define UP 0x415B1B
-# define ENTER 0xD
+# define ENTER 0xA
 # define ESC 0x1B
 # define DEL 0x7E335B1B
 # define SPACE 0x20
@@ -33,11 +33,6 @@
 # define ASTERISK 0x2A
 # define MINUS 0x2D
 
-/*
-********************************************************************************
-**                         DEV                                                **
-********************************************************************************
-*/
 /*
 ********************************************************************************
 **                         STRUCTS                                            **
@@ -55,8 +50,9 @@ typedef struct	s_select
 	int			ws_rows;
 	int			ws_cols;
 	char		**av;
-	char		**env;
 	t_list		*head;
+	size_t		width;
+	size_t		num_of_nodes;
 	t_termios	original_config;
 	t_termios	rawmode;
 }				t_sh;
@@ -64,11 +60,18 @@ typedef struct	s_select
 typedef struct	s_args
 {
 	char		*name;
-	char		*p_color;
 	t_bool		is_picked;
 	t_bool		cursor;
 	t_bool		printed;
 }				t_args;
+
+/*
+********************************************************************************
+**                         GLOBALS                                            **
+********************************************************************************
+*/
+
+t_sh			*g_select;
 
 /*
 ********************************************************************************
@@ -93,23 +96,41 @@ void			se_del_memory(void *content, size_t content_size);
 
 /*
 ********************************************************************************
-**                                                                            **
-**                         MOST IMPORTANT FUNCTIONS                           **
-**                                                                            **
+**                         INITIALIZE FUNCTIONS                               **
 ********************************************************************************
 */
 
 int				ft_putint_fd(int c);
-void			se_clear_screen(void);
-void			se_init(t_sh *t, int ac, char **av, char **env);
+void			se_init(t_sh *t, int ac, char **av);
 void			se_put_args_linkedlist(t_sh *t);
+
+/*
+********************************************************************************
+**                  INPUT / OUTPUT / USER BEHAVIOUR FUNCTIONS                 **
+********************************************************************************
+*/
+
+void			se_clear_screen(void);
+void			se_process_input(t_sh *t);
 void			se_print_arg_stderr(t_sh *t);
 void			se_def_how_to_print_and_print(t_sh *t, t_list *head);
 
-int				se_readkey(void);
-void			se_process_input(t_sh *t);
+/*
+********************************************************************************
+**                         SIGNALS                                            **
+** 				Only function that needs globals                              **
+********************************************************************************
+*/
+
+void			se_init_signal_handlers(void);
+
+/*
+********************************************************************************
+**                         CLOSING                                            **
+********************************************************************************
+*/
+
 void			se_print_options_stdout(t_sh *t);
-void			se_config(t_sh *t);
 void			se_close(t_sh *t);
 void			se_exit(char const *error);
 

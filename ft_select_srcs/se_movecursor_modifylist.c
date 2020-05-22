@@ -6,7 +6,7 @@
 /*   By: jrignell <jrignell@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/13 14:24:17 by jrignell          #+#    #+#             */
-/*   Updated: 2020/05/16 13:13:01 by jrignell         ###   ########.fr       */
+/*   Updated: 2020/05/22 16:26:11 by jrignell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,20 +51,6 @@ static t_list	*se_move_cursor(t_list *current, t_sh *t)
 	{
 		if (!(current = current->prev))
 			return (ft_lstget_last(tmp));
-	}
-	return (current);
-}
-
-t_list			*se_get_current_cursor(t_sh *t)
-{
-	t_list	*current;
-
-	current = t->head;
-	while (current)
-	{
-		if (((t_args *)current->content)->cursor == TRUE)
-			break ;
-		current = current->next;
 	}
 	return (current);
 }

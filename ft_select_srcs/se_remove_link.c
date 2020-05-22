@@ -6,7 +6,7 @@
 /*   By: jrignell <jrignell@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/13 16:39:40 by jrignell          #+#    #+#             */
-/*   Updated: 2020/05/13 21:46:13 by jrignell         ###   ########.fr       */
+/*   Updated: 2020/05/22 17:02:26 by jrignell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ static void	se_del_first_link(t_list *current, t_sh *t)
 	current->next->prev = NULL;
 }
 
-int		se_remove_link(t_sh *t)
+int			se_remove_link(t_sh *t)
 {
 	t_list	*current;
 

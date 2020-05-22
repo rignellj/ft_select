@@ -6,7 +6,7 @@
 /*   By: jrignell <jrignell@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/05 15:33:56 by jrignell          #+#    #+#             */
-/*   Updated: 2020/05/15 13:29:37 by jrignell         ###   ########.fr       */
+/*   Updated: 2020/05/16 18:34:36 by jrignell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,7 @@
 # define CREVERSEVIDEO "\x1B[7m"
 # define CUNDERLINED "\x1B[4m"
 # define CULINEDREVV "\x1B[4;7m"
+# define CRAPIDBLINK "\x1B[6m"
 
 typedef struct	s_format
 {

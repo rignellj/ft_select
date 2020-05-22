@@ -6,7 +6,7 @@
 #    By: jrignell <jrignell@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/03/13 18:19:52 by jrignell          #+#    #+#              #
-#    Updated: 2020/05/15 18:45:05 by jrignell         ###   ########.fr        #
+#    Updated: 2020/05/22 16:37:39 by jrignell         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,8 +22,6 @@ SRC :=	main.c \
 		se_exit.c \
 		se_init.c \
 		se_close.c \
-		se_config.c \
-		se_readkey.c \
 		se_del_memory.c \
 		se_remove_link.c \
 		se_clear_screen.c \
@@ -32,8 +30,10 @@ SRC :=	main.c \
 		se_disable_rawmode.c \
 		se_select_unselect.c \
 		se_print_arg_stderr.c \
+		se_get_current_cursor.c \
 		se_put_args_linkedlist.c \
 		se_print_options_stdout.c \
+		se_init_signal_handlers.c \
 		se_movecursor_modifylist.c \
 		se_def_how_to_print_and_print.c
 

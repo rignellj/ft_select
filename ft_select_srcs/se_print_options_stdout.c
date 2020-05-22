@@ -6,7 +6,7 @@
 /*   By: jrignell <jrignell@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/12 11:20:11 by jrignell          #+#    #+#             */
-/*   Updated: 2020/05/12 17:44:53 by jrignell         ###   ########.fr       */
+/*   Updated: 2020/05/22 17:05:00 by jrignell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,15 @@
 void	se_print_options_stdout(t_sh *t)
 {
 	size_t	i;
+	t_list	*current;
 
 	i = 0;
-	while (t->av[i + 1])
+	current = t->head;
+	while (current)
 	{
-		ft_dprintf(STDERR_FILENO, "%s ", t->av[i]);
-		i++;
+		if (((t_args *)current->content)->is_picked)
+			ft_dprintf(STDOUT_FILENO, "%s ",
+			((t_args *)current->content)->name);
+		current = current->next;
 	}
-	ft_dprintf(STDERR_FILENO, "%s\n", t->av[i]);
 }

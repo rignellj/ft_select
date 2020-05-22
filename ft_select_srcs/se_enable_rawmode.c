@@ -6,7 +6,7 @@
 /*   By: jrignell <jrignell@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/09 12:11:14 by jrignell          #+#    #+#             */
-/*   Updated: 2020/05/12 18:44:58 by jrignell         ###   ########.fr       */
+/*   Updated: 2020/05/22 16:11:13 by jrignell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,14 +35,11 @@ void	se_enable_rawmode(t_sh *t)
 	if (tcgetattr(t->fd, &t->original_config) == -1)
 		se_exit("tcgetattr: failed to get current state. Exiting..\r\n");
 	t->rawmode = t->original_config;
-	t->rawmode.c_lflag &= ~(ICANON | ECHO | ISIG | IEXTEN);
-	t->rawmode.c_iflag &= ~(IXON | ICRNL | BRKINT | INPCK | ISTRIP);
-	t->rawmode.c_oflag &= ~(OPOST);
-	t->rawmode.c_cflag |= (CS8);
+	t->rawmode.c_lflag &= ~(ICANON | ECHO);
 	t->rawmode.c_cc[VMIN] = 1;
 	t->rawmode.c_cc[VTIME] = 0;
 	if (tcsetattr(t->fd, TCSANOW, &t->rawmode) == -1)
 		se_exit("tcsetattr: failed to make requested changes. Exiting..\r\n");
-	tputs(tgetstr("vi", NULL), t->fd, ft_putint_fd);
 	tputs(tgetstr("ti", NULL), t->fd, ft_putint_fd);
+	tputs(tgetstr("vi", NULL), t->fd, ft_putint_fd);
 }

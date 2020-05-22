@@ -6,13 +6,21 @@
 /*   By: jrignell <jrignell@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/11 13:35:09 by jrignell          #+#    #+#             */
-/*   Updated: 2020/05/16 12:32:52 by jrignell         ###   ########.fr       */
+/*   Updated: 2020/05/22 17:04:48 by jrignell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_select.h"
-// #include <term.h>
-// #include <stdlib.h>
+
+static int	se_readkey(void)
+{
+	int		key;
+
+	key = 0;
+	if (read(STDERR_FILENO, &key, 4) == -1)
+		se_exit("read: failed to read STDERR. Exiting..\n");
+	return (key);
+}
 
 static int	se_process_keypress(t_sh *t)
 {
@@ -30,7 +38,7 @@ static int	se_process_keypress(t_sh *t)
 	return (0);
 }
 
-void	se_process_input(t_sh *t)
+void		se_process_input(t_sh *t)
 {
 	int		status;
 
@@ -40,6 +48,6 @@ void	se_process_input(t_sh *t)
 		se_clear_screen();
 		se_print_arg_stderr(t);
 		status = se_process_keypress(t);
-		se_clear_screen();
 	}
+	se_clear_screen();
 }

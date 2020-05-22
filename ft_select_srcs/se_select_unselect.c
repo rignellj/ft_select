@@ -6,7 +6,7 @@
 /*   By: jrignell <jrignell@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/13 16:21:04 by jrignell          #+#    #+#             */
-/*   Updated: 2020/05/16 12:42:12 by jrignell         ###   ########.fr       */
+/*   Updated: 2020/05/22 16:20:50 by jrignell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,10 @@ static void	se_unselect_all(t_list *elem)
 
 static int	se_select_unselect_all(t_sh *t)
 {
-	ft_lstiter(t->head, t->key == MINUS ? se_unselect_all : se_select_all);
+	if (t->key == MINUS)
+		ft_lstiter(t->head, se_unselect_all);
+	else if (t->key == ASTERISK)
+		ft_lstiter(t->head, se_select_all);
 	t->key = 0;
 	return (1);
 }
@@ -41,7 +44,7 @@ int			se_select_unselect(t_sh *t)
 	is_selected = &((t_args *)current->content)->is_picked;
 	if (*is_selected == FALSE)
 		*is_selected = TRUE;
-	else
+	else if (*is_selected == TRUE)
 		*is_selected = FALSE;
 	t->key = 0;
 	return (1);

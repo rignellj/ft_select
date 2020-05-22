@@ -6,7 +6,7 @@
 /*   By: jrignell <jrignell@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/12 14:06:11 by jrignell          #+#    #+#             */
-/*   Updated: 2020/05/12 14:29:00 by jrignell         ###   ########.fr       */
+/*   Updated: 2020/05/20 14:19:31 by jrignell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ int				ft_dprintf(int fd, const char *format, ...)
 			i += j + 1;
 		}
 		else
-			write(1, &format[i++], 1);
+			write(fd, &format[i++], 1);
 		ret++;
 	}
 	va_end(ap);
