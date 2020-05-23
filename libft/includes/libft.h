@@ -6,7 +6,7 @@
 /*   By: jrignell <jrignell@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/18 10:08:35 by jrignell          #+#    #+#             */
-/*   Updated: 2020/05/22 17:21:31 by jrignell         ###   ########.fr       */
+/*   Updated: 2020/05/23 17:56:37 by jrignell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,18 +34,14 @@
 
 # define BUFF_SIZE 32
 # define FD_SIZE 4096
-# define FT_ULONG_MAX 18446744073709551615
-# define FT_LONG_MAX 9223372036854775807
-# define FT_LONG_MIN -9223372036854775808
-# define FT_UINT_MAX 4294967295
-# define FT_INT_MAX 2147483647
-# define FT_INT_MIN -2147483648
-# define FT_USHRT_MAX 65535
-# define FT_SHRT_MAX 32767
-# define FT_SHRT_MIN -32768
-# define FT_CHAR_MAX 127
-# define FT_CHAR_MIN -128
-# define FT_UCHAR_MAX 255
+# define FT_ULONG_MAX 0xFFFFFFFFFFFFFFFF
+# define FT_LONG_MAX 0x7FFFFFFFFFFFFFFF
+# define FT_UINT_MAX 0xFFFFFFFF
+# define FT_INT_MAX 0x7FFFFFFF
+# define FT_USHRT_MAX 0xFFFF
+# define FT_SHRT_MAX 0x7FFF
+# define FT_CHAR_MAX 0x7F
+# define FT_UCHAR_MAX 0xFF
 
 /*
 ********************************************************************************
@@ -121,6 +117,7 @@ unsigned long long	ft_abs(long long num);
 ********************************************************************************
 */
 
+char 				*ft_strtok(char *str, const char *delims);
 char				*ft_strcpy(char *dst, const char *src);
 char				*ft_strncpy(char *dst, const char *src, size_t len);
 char				*ft_implode(char **s);

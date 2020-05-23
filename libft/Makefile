@@ -6,7 +6,7 @@
 #    By: jrignell <jrignell@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/10/18 13:33:40 by jrignell          #+#    #+#              #
-#    Updated: 2020/05/11 21:15:24 by jrignell         ###   ########.fr        #
+#    Updated: 2020/05/23 16:37:52 by jrignell         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -104,7 +104,8 @@ SRCS = ft_isalpha.c \
 	ft_ptr_push.c \
 	ft_arraystr.c \
 	ft_arraymaxlen.c \
-	ft_abs.c
+	ft_abs.c \
+	ft_strtok.c
 
 OBJ  = $(patsubst %.c, %.o, $(SRCS))
 
